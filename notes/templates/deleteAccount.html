@@ -1,0 +1,11 @@
+{% extends "home.html" %}
+{%block title%}confirm delete account{%endblock%}
+{% block content%}
+<h2>confirm delete account</h2>
+<form method="post">
+    {%csrf_token%}
+    {{form}}
+    <button type="submit">delete</button>
+</form>
+
+{%endblock%}

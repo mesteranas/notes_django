@@ -1,0 +1,12 @@
+{%extends "home.html"%}
+{%block title%}{{note.title}}{%endblock%}
+{%block content%}
+<h1>{{note.title}}</h1>
+<p> publish on {{note.date}}</p>
+<p>
+    <pre>
+        {{note.body}}
+    </pre>
+</p>
+<a href="{%url "deleteNote" user.username note.pk%}">delete note</a>
+{%endblock%}

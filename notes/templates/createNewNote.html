@@ -1,0 +1,10 @@
+{%extends "home.html"%}
+{%block title%} create new note{%endblock%}
+{%block content%}
+<h1>create new note</h1>
+<form method="post">
+    {%csrf_token%}
+    {{form}}
+    <button type="submit">publish</button>
+</form>
+{%endblock%}

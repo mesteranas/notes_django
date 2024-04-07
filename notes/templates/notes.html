@@ -1,0 +1,9 @@
+{%extends "home.html"%}
+{%block title%} my notes{%endblock%}
+{%block content%}
+<h1>notes</h1>
+    {%for result in results%}
+    <h3><a href="{%url "viewNote" user.username result.pk%}">{{result.title}}</a></h3>
+    <p>publish on {{result.date}}</p>
+    {%endfor%}
+{%endblock%}
