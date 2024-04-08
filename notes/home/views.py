@@ -103,10 +103,12 @@ def viewNote(r,user_name,pk):
     note=get_object_or_404(models.notes,pk=pk)
     if note.user==user:
         return render(r,"viewNote.html",{"note":note})
+@login_required
 def deleteNote(r,user_name,pk):
     user=get_object_or_404(User,username=r.user)
     note=get_object_or_404(models.notes,pk=pk)
     if r.method=="POST":
-        note.delete()
-        return redirect("homePage")
+        if note.user==user:
+            note.delete()
+            return redirect("notes")
     return render(r,"deleteNote.html")
